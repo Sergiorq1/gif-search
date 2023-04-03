@@ -8,6 +8,8 @@ const app = express();
 // Middleware
 const exphbs  = require('express-handlebars');
 
+app.use(express.static('public'));
+
 app.engine('handlebars', exphbs.engine({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
@@ -21,7 +23,7 @@ const Tenor = require("tenorjs").client({
 // Routes
 app.get('/', (req, res) => {
   // Handle the home page when we haven't queried yet
-  term = "Potato"
+  term = "firulais"
   if (req.query.term) {
       term = req.query.term
   }
